@@ -4,13 +4,19 @@ Virtual Memory Optimization Simulator - Backend API
 Implements Demand Paging and Memory Allocation algorithms.
 """
 
-from flask import Flask, request, jsonify, send_from_directory, make_response
+from flask import Flask, request, jsonify, send_from_directory, make_response, render_template
 from collections import OrderedDict
 import os
 
 app = Flask(__name__)
 
 # CORS headers for all responses
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
 @app.after_request
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
