@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Memory Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🧠 Virtual Memory Optimizer</h1>
+            <p>Simulate Demand Paging & Memory Allocation Algorithms</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-nav">
+            <button type="button" class="tab-btn active" data-tab="paging">
+                📄 Demand Paging
+            </button>
+            <button type="button" class="tab-btn" data-tab="allocation">
+                💾 Memory Allocation
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Paging Section -->
+            <section id="paging-section" class="tab-content active">
+                <div class="card">
+                    <h2>Demand Paging Simulation</h2>
+                    <p class="description">Simulate page replacement algorithms with visual frame states</p>
+                    
+                    <form id="paging-form" class="algorithm-form">
+                        <div class="form-group">
+                            <label for="paging-algorithm">Algorithm</label>
+                            <select id="paging-algorithm" name="algorithm">
+                                <option value="FIFO">FIFO (First-In-First-Out)</option>
+                                <option value="LRU">LRU (Least Recently Used)</option>
+                                <option value="LIFO">LIFO (Last-In-First-Out)</option>
+                                <option value="Optimal">Optimal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="page-reference">Page Reference String</label>
+                            <input type="text" 
+                                   id="page-reference" 
+                                   name="page_reference" 
+                                   placeholder="e.g., 1,2,3,1,4,5,1,2"
+                                   required>
+                            <small>Comma-separated page numbers</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frame-count">Number of Frames</label>
+                            <input type="number" 
+                                   id="frame-count" 
+                                   name="frame_count" 
+                                   min="1" 
+                                   max="10" 
+                                   value="3" 
+                                   required>
+                            <small>Physical memory frames (1-10)</small>
+                        </div>
+
+                        <button type="button" id="paging-submit" class="submit-btn">
+                            ▶ Run Simulation
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Paging Results Container -->
+                <div id="paging-results" class="results-container">
+                    <!-- Dynamic content will be injected here -->
+                </div>
+            </section>
+
+            <!-- Allocation Section -->
+            <section id="allocation-section" class="tab-content">
+                <div class="card">
+                    <h2>Memory Allocation Simulation</h2>
+                    <p class="description">Simulate memory allocation strategies with fragmentation analysis</p>
+                    
+                    <form id="allocation-form" class="algorithm-form">
+                        <div class="form-group">
+                            <label for="allocation-algorithm">Algorithm</label>
+                            <select id="allocation-algorithm" name="algorithm">
+                                <option value="First Fit">First Fit</option>
+                                <option value="Best Fit">Best Fit</option>
+                                <option value="Worst Fit">Worst Fit</option>
+                                <option value="Next Fit">Next Fit</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memory-blocks">Memory Block Sizes</label>
+                            <input type="text" 
+                                   id="memory-blocks" 
+                                   name="memory_blocks" 
+                                   placeholder="e.g., 100,200,50,300,150"
+                                   required>
+                            <small>Comma-separated block sizes in KB</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="process-sizes">Process Sizes</label>
+                            <input type="text" 
+                                   id="process-sizes" 
+                                   name="process_sizes" 
+                                   placeholder="e.g., 50,100,200,80"
+                                   required>
+                            <small>Comma-separated process sizes in KB</small>
+                        </div>
+
+                        <button type="button" id="allocation-submit" class="submit-btn">
+                            ▶ Run Simulation
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Allocation Results Container -->
+                <div id="allocation-results" class="results-container">
+                    <!-- Dynamic content will be injected here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Virtual Memory Optimizer | CS Simulation Tool</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
